@@ -6,6 +6,7 @@ document.getElementById('test-button').addEventListener('click', function(){
 */
 
 const titleClickHandler = function(event){
+    event.preventDefault();
     const clickedElement = this;
     console.log('Link was clicked!');
 
@@ -31,11 +32,20 @@ const titleClickHandler = function(event){
 
     /* get 'href' attribute from the clicked link */
 
+    const atricleSelector = clickedElement.getAttribute('href');
+    console.log(atricleSelector);
+
     /* find the correct article using the selector (value of 'href' attribute) */
 
+    const targetArticle = document.querySelector(atricleSelector);
+    console.log(targetArticle);
+
     /* add class 'active' to the correct article */
-    console.log(clickedElement);
+    
     clickedElement.classList.add('active');
+
+    targetArticle.classList.add('active');
+
   }
   
   const links = document.querySelectorAll('.titles a');
